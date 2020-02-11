@@ -1,0 +1,99 @@
+<template>
+
+  <div class="container">
+    <div class="section">
+
+      <div class="tabs">
+        <ul>
+          <li
+            class.bind="selectedTab === 'control' ? 'is-active' : ''"
+            click.trigger="selectControlTab()"
+          >
+            <a>Control</a>
+          </li>
+          <li
+            class.bind="selectedTab === 'statistics' ? 'is-active' : ''"
+            click.trigger="selectStatisticsTab()"
+          >
+            <a>Statistics</a>
+          </li>
+          <li
+            class.bind="selectedTab === 'playlist' ? 'is-active' : ''"
+            click.trigger="selectPlaylistTab()"
+          >
+            <a>Playlist</a>
+          </li>
+        </ul>
+      </div>
+
+      <div if.bind="selectedTab === 'control'">
+        <button
+          click.trigger="togglePlaying()"
+          disabled.bind="isBusy"
+          class="button ${state.isPlaying ? 'is-danger' : 'is-success'} ${isBusy ? 'is-loading' : ''}"
+        >
+          ${state.isPlaying ? 'Stop' : 'Start'}
+        </button>
+
+       
+      </div>
+
+      <div if.bind="selectedTab === 'statistics'">
+        <table class="table">
+          <thead>
+            <tr>
+              <td>Track</td>
+              <td>Plays Count</td>
+            </tr>
+          </thead>
+  
+          <tbody>
+            <tr repeat.for="stat of statistics">
+              <td>${stat.track.title}</td>
+              <td>${stat.playsCount}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div if.bind="selectedTab === 'playlist'">
+        <table class="table">
+          <thead>
+            <tr>
+              <td>Track</td>
+              <td></td>
+            </tr>
+          </thead>
+  
+          <tbody>
+            <tr repeat.for="track of playlist.tracks">
+              <td>${track.title}</td>
+              <td>
+                <i class="fa fa-times" click.trigger="removeTrack(track)"></i>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="columns" style="margin: 5px">
+                  <input class="column input is-small" style="margin-right: 5px" placeholder="id" value.bind="newTrackId"></input>
+                  <input class="column input is-small" placeholder="title" value.bind="newTrackTitle"></input>
+                </div>
+              </td>
+              <td style="position: relative">
+                <i class="fa fa-plus v-centered" click.trigger="addTrack()"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button
+          class="button ${isBusy ? 'is-loading' : ''}"
+          disabled.bind="isBusy"
+          click.trigger="syncPlaylist()"
+        >Sync</button>
+      </div>
+
+    </div>
+  </div>
+
+</template>

@@ -1,0 +1,20 @@
+{
+  "accounts": [
+    {
+      "accountId": 1,
+      "spotifyCredentials": {
+        "login": "chillbeats3+zapej@gmail.com",
+        "password": "zapej"
+      },
+      "proxy": "123:123"
+    },
+    {
+      "accountId": 2,
+      "spotifyCredentials": {
+        "login": "chillbeats4+scoxs@gmail.com",
+        "password": "scoxs"
+      },
+      "proxy": "123:123"
+    }
+  ]
+}

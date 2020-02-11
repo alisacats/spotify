@@ -1,0 +1,4 @@
+{
+  "masterEndpoint": "wss://echo.websocket.org",
+  "connectJitterSeconds": "30"
+}

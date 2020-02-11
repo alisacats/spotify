@@ -1,0 +1,6 @@
+bin
+obj
+*.user
+data.sqlite3
+build
+wwwroot

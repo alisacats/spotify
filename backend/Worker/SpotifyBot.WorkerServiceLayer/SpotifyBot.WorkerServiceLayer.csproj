@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../SpotifyBot.WorkerApiModel/SpotifyBot.WorkerApiModel.csproj" />
+    <ProjectReference Include="../SpotifyBot.SpotifyWebInteraction/SpotifyBot.SpotifyWebInteraction.csproj" />
+    <ProjectReference Include="../../Utils/SpotifyBot.Random/SpotifyBot.Random.csproj" />
+  </ItemGroup>
+  
+</Project>
